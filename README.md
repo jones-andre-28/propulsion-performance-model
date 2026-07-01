@@ -1,2 +1,13 @@
-# propulsion-performance-model
-Computational propulsion analysis tool that models rocket engine performance using first-principles equations and explores design tradeoffs through parametric studies and visualization.
+# Propulsion Performance Model
+
+A computational tool for analyzing rocket engine performance using first-principles equations and parametric design exploration.
+
+## Current Stage
+Phase 1: Core physics model setup
+
+## Goal
+Build a propulsion analysis tool that explores thrust and specific impulse across key engine design parameters.
+
+## Author
+Andre Jones
+Aerospace Engineering | Tuskegee University
