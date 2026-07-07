@@ -17,7 +17,7 @@ def compute_thrust(Pc,eps,Pa,mdot,gamma=1.22,R=287,Tc=3000):
     ## placeholder structure (will be refined step by step)
 
     # Calculate exhaust velcoity
-    Ve = np.sqrt((2 * gamma / (gamma - 1) * R * Tc * (1-(Pa/Pc)**((gamma - 1)/ gamma))))
+    Ve = np.sqrt((((2 * gamma) / (gamma - 1)) * (R * Tc) * (1-(Pa/Pc)**((gamma - 1)/ gamma))))
 
     momentum_thrust = mdot * Ve
     pressure_thrust = (Pc - Pa) * (eps * 1e-4) #simplified scaling placeholder
@@ -35,10 +35,8 @@ if __name__ == "__main__":
     Pc = 3e6
     eps = 20
     Pa = 101325
-    mdot = 5
-
+    mdot = 20
     F = compute_thrust(Pc,eps,Pa,mdot)
-    Isp = compute_isp(F,mdot)
-
+    Isp = compute_isp(F,mdot) 
     print("Thrust: ", F)
     print("Isp: ", Isp)
