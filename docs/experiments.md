@@ -1,5 +1,11 @@
 # Experiment: Effect of Mass Flow Rate
 ### 7/7/26
+
+## Current Assumptions
+Specific Heat Ratio = 1.22
+Gas Constant = 287
+Chamber Temperature = 3000
+
 ## Input changed:
 mdot increased from 10 to 20
 

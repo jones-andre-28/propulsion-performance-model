@@ -39,4 +39,4 @@ if __name__ == "__main__":
     F = compute_thrust(Pc,eps,Pa,mdot)
     Isp = compute_isp(F,mdot) 
     print("Thrust: ", F)
-    print("Isp: ", Isp)
+    print("Isp: ", Isp) 
