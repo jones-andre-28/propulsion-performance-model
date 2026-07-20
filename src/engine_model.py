@@ -5,12 +5,12 @@ import numpy as np
 def compute_thrust(Pc,eps,Pa,mdot,gamma=1.22,R=287,Tc=3000):
     ### Simplified rocket thrust model (first-order approximation) ###
     """
-    Pc: Chamber pressure (pressure inside the combustion chamber); Unit - Pa
+    Pc: Combustion chamber pressure; Unit - Pa
     eps: Expansion ratio (exhaust area/throat area; how much exhaust expands before leaving the nozzle); Unitless
-    Pa: Ambient pressure (altitute/operating condition: Sea level = 101,325Pa; Vacuum = 0 Pa); Units - Pa
+    Pa: Ambient pressure aka nozzle exit pressure (altitute/operating condition: Sea level = 101,325Pa; Vacuum = 0 Pa); Units - Pa
     mdot: Mass flow rate (how much propellant is flowing out per second); Units - kg/s
     gamma: Specific heat ratio (constant pressure/constant volume; therodynamic behaviro of exhaust gases); Unitless
-    R: Gas constant (specific gas constant for exhaust gas mixture); Units - J/(kg*K)
+    R: Gas constant (universal gas constant / exhaust gas molecular weight); Units - J/(kg*K)
     Tc: Chamber temperature (temperature of combust gases inside chamber); Units - K
     """
 
@@ -30,13 +30,26 @@ def compute_isp(F,mdot,g0=9.81):
     ### Specific Impluse Calculation ###
     return F / (mdot * g0)
 
-if __name__ == "__main__":
+def compute_delta_v(Isp, m0, mf, g0=9.81):
+    ### Delta-V Calculation using Tsiolkovsky rocket equation ###
+    """
+    Isp: Specific impulse of the engine; Units - s
+    m0: Initial mass (including propellant); Units - kg
+    mf: Final mass (after propellant is expended); Units - kg
+    g0: Standard gravity; Units - m/s^2
+    """
+    return Isp * g0 * np.log(m0 / mf)
 
+if __name__ == "__main__":
+    ### Input Variables
     Pc = 3e6
     eps = 20
     Pa = 101325
     mdot = 20
     F = compute_thrust(Pc,eps,Pa,mdot)
     Isp = compute_isp(F,mdot) 
+
+    
+    ### Output Results
     print("Thrust: ", F)
     print("Isp: ", Isp) 
