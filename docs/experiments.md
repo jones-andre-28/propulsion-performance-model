@@ -92,6 +92,9 @@ Pa = 101325 Pa
 Pc = 10e6
 mdot = 20
 
+Idealized gas laws
+Gamma range does not represent all possible exhaust compositions 
+
 ## Input changed
 Specific Heat Ratio (gamma): 1.0 < x < 1.4
 inc = 0.05
