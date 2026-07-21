@@ -24,8 +24,10 @@ Isp decreasd since the denominator increases faster than the numerator and as th
 ### Edit: 7/20/26
 Numbers are not doubled as the Ve equation (which is in the momentum_thrust equation of m-dot * Ve) contains a square root, meaning 2x inputs only produces 1.4x output
 
-# Experiment: Limits of ISP | 7/20/26
-## Chamber pressure
+# Experiment: Effects on ISP | 7/20/26
+## Objective I
+Investigate how chamber pressure influences thrust and specific impulse while holding all other parameters constant.
+
 ## Code   
  for Pc in np.arange(10.0e6, 20.5e6, 0.5e6):
         F = compute_thrust(Pc,eps,Pa,mdot)
@@ -73,5 +75,36 @@ inc = 0.5e6
 | 19.5 | 87,173.44 | 444.31 |
 | 20.0 | 88,243.04 | 449.76 |
 
-## Conclusion
-Combustion chamber pressure and ISP have a linearly proportional relationship
+## Interpretation
+Within the range of 10MPa to 20MPa, combustion chamber pressure and ISP seem to have a linearly proportional relationship
+
+Further investigation is required to confirm this relationship outside this range
+
+## Objective II
+Investigate how specific heat ratio influences thrust and specific impulse while holding all other parameters constant.
+
+## Current Assumptions
+R = 287  J/(kg*K)  
+Tc = 3000 K  
+g0 = 9.81 m/s^2  
+eps = 20  
+Pa = 101325 Pa  
+Pc = 10e6
+mdot = 20
+
+## Input changed
+Specific Heat Ratio (gamma): 1.0 < x < 1.4
+inc = 0.05
+
+## Results
+| Specific Heat Ratio | Thrust (N) | Specific Impulse (s) |
+|------------------------|-----------:|---------------------:|
+| 1.00 | nan | nan |
+| 1.05 | 73,098.78 | 372.57 |
+| 1.10 | 70,648.14 | 360.08 |
+| 1.15 | 68,578.62 | 349.53 |
+| 1.20 | 66,811.30 | 340.53 |
+| 1.25 | 65,286.96 | 332.76 |
+| 1.30 | 63,960.48 | 326.00 |
+| 1.35 | 62,796.95 | 320.07 | 
+| 1.40 | 61,768.99 | 314.83 |
