@@ -26,8 +26,8 @@ Numbers are not doubled as the Ve equation (which is in the momentum_thrust equa
 
 # Experiment: Limits of ISP | 7/20/26
 ## Chamber pressure
-## Code
-for Pc in np.arange(10.0e6, 20.5e6, 0.5e6):
+## Code   
+ for Pc in np.arange(10.0e6, 20.5e6, 0.5e6):
         F = compute_thrust(Pc,eps,Pa,mdot)
         Isp = compute_isp(F,mdot) 
         
@@ -37,11 +37,11 @@ for Pc in np.arange(10.0e6, 20.5e6, 0.5e6):
 
 ## Current Assumptions
 gamma = 1.22  
-R = 287  J/(kg*K)
+R = 287  J/(kg*K)  
 Tc = 3000 K  
-g0 = 9.81 m/s^2
+g0 = 9.81 m/s^2  
 eps = 20  
-Pa = 101325 Pa
+Pa = 101325 Pa  
 mdot = 20 kg*m / s 
 
 ## Input changed
@@ -74,4 +74,4 @@ inc = 0.5e6
 | 20.0 | 88,243.04 | 449.76 |
 
 ## Conclusion
-Combustion chamber temperature and ISP have a linearly proportional relationship
+Combustion chamber pressure and ISP have a linearly proportional relationship
