@@ -110,5 +110,4 @@ inc = 0.05
 | 1.40 | 61,768.99 | 314.83 |
 
 ## Interpretation
-Within the range of a 1.0 to 1.4 ratio, both thrust and ISP decreased as opposed to increasing with other variables.  
-This leads me to believe that the gamma parameter holds the key to optimization pending further investigation
+Within the range of a 1.0 to 1.4 ratio, both thrust and ISP decreased as opposed to increasing with other variables. There is an unrealistic result when gamma = 1.0 as it creates a denominator of 0 in the Ve equation
