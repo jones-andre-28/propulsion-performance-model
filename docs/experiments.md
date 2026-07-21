@@ -108,3 +108,7 @@ inc = 0.05
 | 1.30 | 63,960.48 | 326.00 |
 | 1.35 | 62,796.95 | 320.07 | 
 | 1.40 | 61,768.99 | 314.83 |
+
+## Interpretation
+Within the range of a 1.0 to 1.4 ratio, both thrust and ISP decreased as opposed to increasing with other variables.  
+This leads me to believe that the gamma parameter holds the key to optimization pending further investigation
