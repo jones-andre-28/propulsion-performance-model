@@ -1,4 +1,5 @@
 import numpy as np 
+import matplotlib.pyplot as plt
 
 ### Propulsion Core Model ###
 
@@ -9,7 +10,7 @@ def compute_thrust(Pc,eps,Pa,mdot,gamma=1.22,R=287,Tc=3000):
     eps: Expansion ratio (exhaust area/throat area; how much exhaust expands before leaving the nozzle); Unitless
     Pa: Ambient pressure aka nozzle exit pressure (altitute/operating condition: Sea level = 101,325Pa; Vacuum = 0 Pa); Units - Pa
     mdot: Mass flow rate (how much propellant is flowing out per second); Units - kg/s
-    gamma: Specific heat ratio (constant pressure/constant volume; therodynamic behaviro of exhaust gases); Unitless
+    gamma: Specific heat ratio (constant pressure/constant volume; therodynamic behavior of exhaust gases); Unitless
     R: Gas constant (universal gas constant / exhaust gas molecular weight); Units - J/(kg*K)
     Tc: Chamber temperature (temperature of combust gases inside chamber); Units - K
     """
@@ -42,14 +43,16 @@ def compute_delta_v(Isp, m0, mf, g0=9.81):
 
 if __name__ == "__main__":
     ### Input Variables
-    Pc = 3e6
+    Pc = 10e6
+    mdot = 20
     eps = 20
     Pa = 101325
-    mdot = 20
-    F = compute_thrust(Pc,eps,Pa,mdot)
-    Isp = compute_isp(F,mdot) 
 
-    
-    ### Output Results
-    print("Thrust: ", F)
-    print("Isp: ", Isp) 
+    ### Calculate values then output
+    for gamma in np.arange(1.0, 1.45, 0.05):
+        F = compute_thrust(Pc,eps,Pa,mdot,gamma=gamma)
+        Isp = compute_isp(F,mdot) 
+        
+        print("Thrust: ", f"{F:,.2f}")
+        print("Isp: ", f"{Isp:,.2f}")
+        print("Gamma: ", f"{gamma:,.2f}")
